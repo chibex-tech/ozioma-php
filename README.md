@@ -26,7 +26,7 @@ A PHP API wrapper for [Ozioma](https://ozioma.net/).
 
 ### Via download
 
-Download a release version from the [releases page](https://github.com/chibexme/ozioma-php/releases).
+Download a release version from the [releases page](https://github.com/chibex-tech/ozioma-php/releases).
 Extract, then:
 ``` php
     require 'path/to/src/autoload.php';
