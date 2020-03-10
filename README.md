@@ -2,9 +2,6 @@
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
-[![Build Status][ico-travis]][link-travis]
-[![Coverage Status][ico-scrutinizer]][link-scrutinizer]
-[![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
 A PHP API wrapper for [Ozioma](https://ozioma.net/).
@@ -64,6 +61,7 @@ When you submit message for sending our server queue's the message for delivery 
 ```
 #### send method parameters
 - `sender` is your custom name/title for your message and is should not exceed 11 characters (space is also counted as character)
+- `recipients` is the phone number(s) you are sending message to
 - `message` is the content you want to send to your recipient(s)
 - `use_corporate_route` cant either be true or false. Value 'true' means that you want your message delivers to Do-Not-disturb (DND) numbers for countries that has dnd policy
 - `callback_url` When you submit message for sending our server queue's the message for delivery and after delivery your callback url is called to notify your system/website that your message has been sent. Then you can use the message id passed as query string to retrieve delivery details. This parameter is optional in case you don't want to receive callback

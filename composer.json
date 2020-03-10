@@ -1,7 +1,9 @@
 {
     "name": "chibex/ozioma-php",
     "type": "library",
-    "description": "Ozioma for PHP library helps to make API calls to Ozioma Cloud Communication Platform for messaging, birthday contact and sms newsletter subscription.",
+    "license": "MIT",
+    "homepage": "https://ozioma.net",
+    "description": "Ozioma for PHP library helps to make API calls to Ozioma Cloud Messaging and Communications Platform for birthday contact and sms newsletter subscription.",
     "keywords": [
         "chibex",
         "ozioma-php",
@@ -20,13 +22,17 @@
         "contact",
         "bulk sms"
     ],
-    "homepage": "https://github.com/chibex-tech/ozioma-php",
-    "license": "MIT",
+    "support":     {
+        "docs": "https://ozioma.net/api/docs",
+        "issues": "https://github.com/chibex-tech/ozioma-php/issues",
+        "source": "https://github.com/chibex-tech/ozioma-php",
+        "rss": "https://github.com/chibex-tech/ozioma-php/releases.atom"
+    },
     "authors": [
         {
-            "name": "Ozioma",
-            "email": "developer@chibex.net",
-            "homepage": "https://ozioma.net",
+            "name": "Chibex Technologies",
+            "email": "info@chibex.net",
+            "homepage": "https://chibex.net",
             "role": "Owner"
         }
     ],
@@ -41,7 +47,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Ozioma\\": "src/"
+            "Chibex\\": "src/"
         }
     },
     "autoload-dev": {
