@@ -34,7 +34,7 @@ This is the first implementation of Ozioma API version 2.
 
 ## Usage
 
-Instantiate Ozioma class and pass you ACCESS-KEY as an argument to the construct. The you can can start calling resource methods to fulfill your requests
+Instantiate Ozioma class and pass you ACCESS-KEY as an argument to the construct. Then you can can start calling resource methods to fulfill your requests
 
 ### 0. Prerequisites
 Confirm that your server can conclude a TLSv1.2 connection to Ozioma's servers. Most up-to-date software have this capability. Contact your service provider for guidance if you have any SSL errors.
@@ -68,7 +68,7 @@ When you submit message for sending our server queue's the message for delivery 
 
 
 ### 2. Scheduling message
-Most of the parameter are the same with `send` method above.
+Most of the parameter are the same with `send` method above. Before scheduling message you need to include `time_zone_id`, call `$ozioma->timezone->list();` for the list of time zones and their ids. 
 
 ```php
     $ozioma = new Chibex\Ozioma(ACCESS-KEY);
@@ -95,14 +95,14 @@ Most of the parameter are the same with `send` method above.
 - `time_zone_id` You can call our time zone endpoint to get list of timezones and their ids. It's used to set at what timezone you want your scheduled message to delivery to your recipient(s)
 
 ### 3. Add Subscriber to your Newsletter list
-To add subscriber from your system/website to your Newsletter list, first login to your Ozioma dashboard and create the newsletter list. Next call Newsletter endpoint to pull your list with their ids
+To add subscriber from your system/website to your Newsletter list, first login to your Ozioma dashboard and create the newsletter list. Next call Newsletter `$ozioma->newsletter->list();` to pull your list with their ids
 
 ```php
     $ozioma = new Chibex\Ozioma(ACCESS-KEY);
     try
     {
         $response =  $ozioma->newsletter->addSubscriber([
-                                    'id' => 2,
+                                    'id' => 2, //sms newsletter id
                                     'name' => 'Chibuike Mba',
                                     'phone_no' => '23470xxxxxxxx']);
         var_dump($response);
@@ -121,7 +121,7 @@ This is same as adding single subscriber but in this case you add multiple subsc
     try
     {
         $response =  $ozioma->newsletter->addBulkSubscribers([
-                                        'id' => 2,
+                                        'id' => 2, //sms newsletter id
                                         'subscribers' => [[
                                             'name' => 'Izuchukwugeme Okafor',
                                             'phone_no' => '23470xxxxxxxx'
@@ -138,7 +138,7 @@ This is same as adding single subscriber but in this case you add multiple subsc
 ```
 
 ### 5. Add Birthday Contact to your Birthday group
-To add contact from your system/website to your birthday group, first login to your Ozioma dashboard and create the birthday group. Next call Birthday endpoint to pull your groups with their ids
+To add contact from your system/website to your birthday group, first login to your Ozioma dashboard and create the birthday group. Next call Birthday `$ozioma->birthday->getGroupList();` to pull your groups with their ids and `$ozioma->month->list();` for months ids
 
 ```php
     $ozioma = new Chibex\Ozioma(ACCESS-KEY);
@@ -169,7 +169,7 @@ This is same as adding single contact but in this case you add multiple contacts
         $response =  $ozioma->birthday->addBulkContactsToGroup([
                                         'group_id' => 7,
                                         'contacts' => [[
-                                            'name' => 'Calab',
+                                            'name' => 'Caleb',
                                             'phone_no' => '23470xxxxxxxx',
                                             'day' => 9,
                                             'month_id' => 1,
@@ -182,7 +182,7 @@ This is same as adding single contact but in this case you add multiple contacts
     }
 ```
 
-## 5. Closing Notes
+## 7. Closing Notes
 
 Generally, to make an API request after constructing a ozioma object, Make a call
  to the resource/method thus: `$ozioma->{resource}->{method}()`; for gets,
@@ -257,4 +257,4 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [link-downloads]: https://packagist.org/packages/chibex/ozioma-php
 [link-author]: https://github.com/chibex-tech
 [link-contributors]: ../../contributors
-[link-ozioma-api-reference]: https://developers.ozioma.net/reference
+[link-ozioma-api-reference]: https://ozioma.net/api/docs
